@@ -1,0 +1,129 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+html, body{
+  display: grid;
+  height: 100%;
+  place-items: center;
+  text-align: center;
+}
+
+.container{
+  width: 420px !important;
+  padding: 20px 30px !important;
+}
+
+.container header {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  margin: 20px;
+}
+
+.container form {
+  margin: 20px 5px 10px 5px;
+}
+
+form .form-group {
+  height: 50px;
+  position: relative;
+  margin: 0 !important;
+  margin-top: 35px !important;
+}
+
+form .form-group input {
+  border: 2px solid #5e5e5e;
+  padding-left: 15px;
+  outline: none;
+  border-radius: 5px;
+  font-size: 17px;
+  transition: all 0.1s;
+  height: 45px;
+  text-align: center;
+}
+
+form .form-group input:focus {
+  border-color: #5e5e5e;
+  box-shadow: inset 0 0 3px #5e5e5e;
+}
+
+form .form-group .showBtn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-60%);
+  cursor: pointer;
+  font-size: 12px;
+  text-align: center;
+  font-weight: 600;
+  color: lightgray;
+  transition: all 0.1s;
+}
+
+form .form-group .showBtn:hover {
+  color: #5e5e5e;
+
+}
+
+form .indicator{
+  height: 7px;
+}
+
+form .indicator span {
+  width: 100%;
+  height: 100%;
+  background: #5e5e5e;
+  border-radius: 5px;
+}
+
+form .indicator span .medium, .weak, .strong {
+  margin: 0 3px;
+}
+
+.score-0{
+  background: red !important;
+}
+
+.score-1, .score-2{
+  background: orange !important;
+}
+
+.score-3, .score-4{
+  background: #23ad6c !important;
+}
+
+.text-group {
+  text-align: center !important;
+  width: 520px;
+  margin-top: 10px;
+}
+
+.strength{
+  font-size: 20px;
+  font-weight: 600 !important;
+}
+
+.guess-time{
+  margin-top: 25px;
+}
+
+.suggestion{
+  margin-top: 15px;
+  font-weight: 600 !important;
+}
+
+
+/* form .indicator span:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: red;
+  border-radius: 5px;
+} */
