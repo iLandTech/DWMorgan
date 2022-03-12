@@ -12,20 +12,22 @@ const PasswordStrengthChecker = () => {
   const [suggestions, setSuggestions] = useState('');
   const [show, setShow] = useState(false);
 
+  const clearValues= () => {
+    setScore(null);
+    setGuessTime(0);
+    setGuessTimeString('');
+    setStrength('');
+    setWarning('');
+    setSuggestions('')
+  }
+
   useEffect(() => {
     let payload = {
       password: password,
     }
-    if (password === '') {
-      setScore(null);
-      setStrength('');
-      setGuessTimeString('');
-      setSuggestions('');
-    }
-    if (password !== '') {
+    if (password) {
       passwordChecker(payload)
         .then((response) => {
-          console.log(response?.guessTimeString)
           setScore(response?.score)
           setGuessTime(response?.guessTime)
           setGuessTimeString(response?.guessTimeString)
@@ -49,21 +51,30 @@ const PasswordStrengthChecker = () => {
           console.log(error)
         })
     }
+    else if (password === '') {
+      clearValues();
+    }
 
 
     }, [password, score])
-    
+
 
 
   return (
     <>
-      <div className="container">
-        <form>
+    <div className="main-container d-flex justify-content-center align-items-center row">
+      <div className="container justify-content-center align-items-center">
+          <form onSubmit={(e) => { e.preventDefault(); }} className="">
 
           <header>Is your password <br/>strong enough?</header>
-          
-          <div className="form-group w-100">
-            <input type={`${show ? 'text' : 'password'}`} className="form-control w-100" placeholder="Type a password" value={password} onChange={(e) => {setPassword(e.target.value)}} />
+
+            <div className="form-group d-flex justify-content-center align-items-center">
+              <input type={`${show ? 'text' : 'password'}`} className="form-control" placeholder="Type a password" value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+                
+              />
             <span className="showBtn" onClick={() => { setShow(!show) }}>{ show ? `HIDE` : `SHOW`}</span>
           </div>
           
@@ -77,16 +88,22 @@ const PasswordStrengthChecker = () => {
 
 
         </form>
-    </div>
-    <div className='text-group'>
-          {/* { strength && */}
-            <div className="strength">Your password is {strength}!</div>
-          {/* { guessTimeString && */}
-            <div className="guess-time">It takes {guessTimeString} to guess your password. {warning} </div>
-          {/* { suggestions && */}
-            <div className="suggestion">{suggestions}</div>
-          
-    </div>
+
+        <div className='text-group'>
+        {strength && password &&
+          <div className="strength">Your password is {strength}!</div>
+        }
+        {guessTimeString && password &&
+          <div className="guess-time">It takes {guessTimeString} to guess your password. {warning} </div>
+        }
+        {suggestions && password &&
+          <div className="suggestion">{suggestions}</div>
+        }
+        </div>
+
+      </div>
+
+      </div>
     </>
   )
 }
