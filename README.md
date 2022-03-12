@@ -15,6 +15,7 @@ Install the following:
 ## Run the Repo on your local device
 <!--  DO NOT include the dollar sign ($) -->
 1 Open your terminal and then type:
+<!-- for windows users I suggest you install git bash for your terminal -->
   $ git clone "https://github.com/iLandTech/DWMorgan.git"
 
 2 cd into the new folder and type:
