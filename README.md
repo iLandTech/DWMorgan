@@ -25,3 +25,6 @@ Install the following:
 
 3 Run the App. Type:
   $ npm start
+  
+<!--  For any concerns kindly email me at iclandingin28@gmail.com  -->
+<!-- Thanks! -->
